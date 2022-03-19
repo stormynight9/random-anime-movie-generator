@@ -1,33 +1,55 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const useFetch = (url) => {
+const endpoint = "https://graphql.anilist.co";
+const headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+};
+
+let query = `
+query ($id: Int) {
+    Media (id: $id, type: ANIME) {
+        id
+        title {
+            romaji
+            english
+            native
+            }
+        coverImage {
+            extraLarge
+        }
+        bannerImage
+
+    }
+}
+`
+
+
+
+const useFetch = (id) => {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
 
-    // useEffect(() => {
-    //     setLoading(true)
-    //     axios.get(url).then((response) => {
-    //         setData(response.data)
-    //     }).catch((err) => {
-    //         setError(err)
-    //     }).finally(() => {
-    //         setLoading(false)
-    //     })
-    // }, [url])
-
-    const refetch = () => {
-        setLoading(true)
-        axios.get(url).then((response) => {
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true)
+            const response = await axios.post(endpoint, {
+                query: query,
+                variables: {
+                    id: id
+                }
+            },
+                { headers: headers })
+            console.log(response.data)
             setData(response.data)
-        }).catch((err) => {
-            setError(err)
-        }).finally(() => {
             setLoading(false)
-        })
-    }
-    return { data, loading, error, refetch }
+        }
+        fetchData()
+    }, [id])
+
+
+    return { data, loading }
 }
 
 export default useFetch
