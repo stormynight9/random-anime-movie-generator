@@ -18,8 +18,29 @@ query ($id: Int) {
             }
         coverImage {
             extraLarge
+            color
         }
         bannerImage
+        averageScore
+        meanScore
+        description(asHtml: false)
+        startDate {
+            year
+            month
+            day
+        }
+        duration
+        trailer {
+            id
+            thumbnail
+        }
+        genres
+        studios {
+            nodes {
+                name
+            }
+        }
+        
 
     }
 }

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Card from "./components/Card";
+import ReadMore from "./components/ReadMore";
 import useFetch from "./hooks/useFetch";
 
 
@@ -13,20 +15,37 @@ function App() {
 
   const [movieId, setMovieId] = useState(randomMovieId(moviesIds))
   const { data, loading } = useFetch(movieId)
+  const [isReadMore, setIsReadMore] = useState(true);
+
 
 
 
   const generateRandomMovieHandler = () => {
     const randomId = randomMovieId(moviesIds)
     setMovieId(randomId)
+    setIsReadMore(false);
   }
 
+  let detail = {
+    titleEnglish: data?.data.Media.title.english,
+    titleRomaji: data?.data.Media.title.romaji,
+    titleNative: data?.data.Media.title.native,
+    coverImage: data?.data.Media.coverImage.extraLarge,
+    score: data?.data.Media.averageScore,
+    description: data?.data.Media.description,
+    year: data?.data.Media.startDate.year,
+    month: data?.data.Media.startDate.month,
+    day: data?.data.Media.startDate.day,
+    duration: data?.data.Media.duration,
+    genres: data?.data.Media.genres,
+    studios: data?.data.Media.studios.nodes
+  }
   return (
-    <div>
-      {loading && <p>Loading...</p>}
-      <img src={data?.data.Media.coverImage.extraLarge} alt="" />
-      <button className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" onClick={generateRandomMovieHandler}>Random</button>
-    </div >
+    <>
+
+      <Card detail={detail} />
+      <button style={{ background: data?.data.Media.coverImage.color ? data?.data.Media.coverImage.color : 'blue' }} className={`flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[${data?.data.Media.coverImage.color}] hover:bg-indigo-700 md:py-4 md:text-lg md:px-10`} onClick={generateRandomMovieHandler}>Random</button>
+    </>
   );
 }
 
