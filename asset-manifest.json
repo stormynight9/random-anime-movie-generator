@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/random-anime-movie-generator/static/css/main.9b1ebc06.css",
-    "main.js": "/random-anime-movie-generator/static/js/main.71741cc7.js",
+    "main.js": "/random-anime-movie-generator/static/js/main.62ee467c.js",
     "index.html": "/random-anime-movie-generator/index.html",
     "main.9b1ebc06.css.map": "/random-anime-movie-generator/static/css/main.9b1ebc06.css.map",
-    "main.71741cc7.js.map": "/random-anime-movie-generator/static/js/main.71741cc7.js.map"
+    "main.62ee467c.js.map": "/random-anime-movie-generator/static/js/main.62ee467c.js.map"
   },
   "entrypoints": [
     "static/css/main.9b1ebc06.css",
-    "static/js/main.71741cc7.js"
+    "static/js/main.62ee467c.js"
   ]
 }
