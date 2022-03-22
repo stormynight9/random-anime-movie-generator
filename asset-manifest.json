@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/stormynight9.github.io/random-anime-movie-generator/static/css/main.9b1ebc06.css",
+    "main.js": "/stormynight9.github.io/random-anime-movie-generator/static/js/main.71741cc7.js",
+    "index.html": "/stormynight9.github.io/random-anime-movie-generator/index.html",
+    "main.9b1ebc06.css.map": "/stormynight9.github.io/random-anime-movie-generator/static/css/main.9b1ebc06.css.map",
+    "main.71741cc7.js.map": "/stormynight9.github.io/random-anime-movie-generator/static/js/main.71741cc7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b1ebc06.css",
+    "static/js/main.71741cc7.js"
+  ]
+}
