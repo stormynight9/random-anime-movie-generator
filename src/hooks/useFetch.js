@@ -40,6 +40,11 @@ query ($id: Int) {
                 name
             }
         }
+        trailer {
+            id
+            site
+            thumbnail
+        }
         
 
     }
@@ -53,6 +58,7 @@ const useFetch = (id) => {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+
         const fetchData = async () => {
             setLoading(true)
             const response = await axios.post(endpoint, {
@@ -63,6 +69,7 @@ const useFetch = (id) => {
             },
                 { headers: headers })
             setData(response.data)
+            console.log(data)
             setLoading(false)
         }
         fetchData()

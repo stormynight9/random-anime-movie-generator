@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import Background from "./components/Background";
 import CoverImage from "./components/CoverImage";
 import Details from "./components/Details";
+import VideoModal from "./components/VideoModal";
 
 
 
@@ -39,17 +40,19 @@ function App() {
     duration: data?.data.Media.duration,
     genres: data?.data.Media.genres,
     studios: data?.data.Media.studios.nodes,
-    color: data?.data.Media.coverImage.color
+    color: data?.data.Media.coverImage.color,
+    trailerId: data?.data.Media.trailer?.id
   }
 
 
   return <>
     <main className='mx-2'>
-      <div className="lg:flex sm:space-x-4 items-center">
+      <div className='lg:flex sm:space-x-4 items-center'>
         <CoverImage coverImage={details.coverImage} title={details.titleEnglish} />
         <Details details={details} />
       </div>
     </main>
+
     <Button loading={loading} generateRandomMovie={generateRandomMovieHandler} color={details.color} />
     <Background color={details.color} bannerImage={details.bannerImage} />
   </>
