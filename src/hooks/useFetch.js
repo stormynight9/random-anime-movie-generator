@@ -69,7 +69,6 @@ const useFetch = (id) => {
             },
                 { headers: headers })
             setData(response.data)
-            console.log(data)
             setLoading(false)
         }
         fetchData()

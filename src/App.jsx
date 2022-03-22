@@ -6,7 +6,6 @@ import Button from "./components/Button";
 import Background from "./components/Background";
 import CoverImage from "./components/CoverImage";
 import Details from "./components/Details";
-import VideoModal from "./components/VideoModal";
 
 
 
