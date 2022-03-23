@@ -23,6 +23,7 @@ function App() {
   const generateRandomMovieHandler = () => {
     const randomId = randomMovieId(moviesIds)
     setMovieId(randomId)
+    console.log(data)
   }
 
   const details = {
@@ -40,7 +41,8 @@ function App() {
     genres: data?.data.Media.genres,
     studios: data?.data.Media.studios.nodes,
     color: data?.data.Media.coverImage.color,
-    trailerId: data?.data.Media.trailer?.id
+    trailerId: data?.data.Media.trailer?.id,
+    rank: data?.data.Media.rankings[0]?.rank
   }
 
 

@@ -45,6 +45,9 @@ query ($id: Int) {
             site
             thumbnail
         }
+        rankings {
+            rank
+        }
         
 
     }

@@ -32,6 +32,8 @@
 
 .button {
     transition: background-color 1s ease;
+    -webkit-transform: translateZ(0);
+    -webkit-transform: translate3d(0, 0, 0);
   }
 
 
