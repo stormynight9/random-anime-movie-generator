@@ -5,7 +5,6 @@ import VideoModal from './VideoModal'
 
 const Details = (props) => {
 
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     const studios = props.details.studios?.map((studio) => {
         return studio.name
     })
@@ -44,8 +43,8 @@ const Details = (props) => {
             </div>
             <div className='sm:flex justify-between'>
                 <div className='sm:max-w-[50%]'>
-                    <div className='mb-1'>
-                        <strong>Released:</strong> {months[props.details.month - 1]} {props.details.day}, {props.details.year}
+                    <div className='mb-1 '>
+                        <strong>Released:</strong> {props.details.season.charAt(0)}<span className='lowercase'>{props.details.season.substring(1)}</span> {props.details.year}
                     </div>
                     <div className='mb-1'>
                         <strong>Genres:</strong> {props.details.genres?.join(', ')}

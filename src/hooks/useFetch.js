@@ -48,6 +48,8 @@ query ($id: Int) {
         rankings {
             rank
         }
+        season
+        seasonYear
         
 
     }
@@ -61,7 +63,6 @@ const useFetch = (id, setLoadingScreen) => {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-
         const fetchData = async () => {
             setLoading(true)
             const response = await axios.post(endpoint, {

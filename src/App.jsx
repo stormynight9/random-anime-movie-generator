@@ -20,7 +20,7 @@ function App() {
   const [movieId, setMovieId] = useState(randomMovieId(moviesIds))
   const [loadingScreen, setLoadingScreen] = useState(true)
   const { data, loading } = useFetch(movieId, setLoadingScreen)
-  console.log(loadingScreen)
+  console.log(data)
 
   const generateRandomMovieHandler = () => {
     const randomId = randomMovieId(moviesIds)
@@ -35,9 +35,10 @@ function App() {
     bannerImage: data?.data.Media.bannerImage,
     score: data?.data.Media.averageScore,
     description: data?.data.Media.description,
-    year: data?.data.Media.startDate.year,
-    month: data?.data.Media.startDate.month,
-    day: data?.data.Media.startDate.day,
+    season: data?.data.Media.season,
+    year: data?.data.Media.seasonYear,
+    // month: data?.data.Media.startDate.month,
+    // day: data?.data.Media.startDate.day,
     duration: data?.data.Media.duration,
     genres: data?.data.Media.genres,
     studios: data?.data.Media.studios.nodes,
