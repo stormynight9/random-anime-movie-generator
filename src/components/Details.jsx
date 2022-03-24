@@ -1,7 +1,6 @@
 import Parser from 'html-react-parser'
 
 import Star from '../assets/Star'
-import Trailer from '../assets/Trailer'
 import VideoModal from './VideoModal'
 
 const Details = (props) => {
