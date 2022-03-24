@@ -1,6 +1,7 @@
 import { useState } from "react";
-import useFetch from "./hooks/useFetch";
+import HashLoader from "react-spinners/HashLoader";
 
+import useFetch from "./hooks/useFetch";
 import { moviesIds } from "./constants";
 import Button from "./components/Button";
 import Background from "./components/Background";
@@ -17,13 +18,13 @@ const randomMovieId = (moviesIds) => {
 function App() {
 
   const [movieId, setMovieId] = useState(randomMovieId(moviesIds))
-  const { data, loading } = useFetch(movieId)
-
+  const [loadingScreen, setLoadingScreen] = useState(true)
+  const { data, loading } = useFetch(movieId, setLoadingScreen)
+  console.log(loadingScreen)
 
   const generateRandomMovieHandler = () => {
     const randomId = randomMovieId(moviesIds)
     setMovieId(randomId)
-    console.log(data)
   }
 
   const details = {
@@ -47,14 +48,16 @@ function App() {
 
 
   return <>
-    <main className='mx-2'>
-      <div className='lg:flex sm:space-x-4 items-center'>
-        <CoverImage coverImage={details.coverImage} title={details.titleEnglish} />
-        <Details details={details} />
-      </div>
-    </main>
-    <Button loading={loading} generateRandomMovie={generateRandomMovieHandler} color={details.color} />
-    <Background color={details.color} bannerImage={details.bannerImage} />
+    {loadingScreen && <div className='h-screen flex justify-center items-center'><HashLoader color={'#4A90E2'} loading={loadingScreen} size={100} /></div>}
+    {!loadingScreen && <>
+      <main className='mx-2 '>
+        <div className='lg:flex sm:space-x-4 items-center'>
+          <CoverImage coverImage={details.coverImage} title={details.titleEnglish} />
+          <Details details={details} />
+        </div>
+      </main>
+      <Button loading={loading} generateRandomMovie={generateRandomMovieHandler} color={details.color} />
+      <Background color={details.color} bannerImage={details.bannerImage} /> </>}
   </>
 }
 

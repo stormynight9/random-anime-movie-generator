@@ -56,7 +56,7 @@ query ($id: Int) {
 
 
 
-const useFetch = (id) => {
+const useFetch = (id, setLoadingScreen) => {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
 
@@ -73,6 +73,7 @@ const useFetch = (id) => {
                 { headers: headers })
             setData(response.data)
             setLoading(false)
+            setLoadingScreen(false)
         }
         fetchData()
     }, [id])
