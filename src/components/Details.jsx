@@ -59,8 +59,7 @@ const Details = (props) => {
                     </div>
                 </div>
             </div>
-            <div className='h-20'>
-            </div>
+
 
         </div>
     )

@@ -8,7 +8,7 @@ const Button = (props) => {
                 onClick={props.generateRandomMovie}
                 type="button"
                 style={{ background: props.color ? props.color + '80' : '#2f2f2f80' }}
-                className={`fixed bottom-3 sm:bottom-auto inline-flex sm:mt-12 px-6 py-4 font-semibold leading-6 text-base shadow rounded-md text-white  button ${props.loading ? 'cursor-not-allowed' : ''}`}
+                className={`inline-flex mb-2 mt-12 px-6 py-4 font-semibold leading-6 text-base shadow rounded-md text-white  button ${props.loading ? 'cursor-not-allowed' : ''}`}
             >
                 {props.loading && <><Loading /> Generating...</>}
                 {!props.loading && <>Generate</>}

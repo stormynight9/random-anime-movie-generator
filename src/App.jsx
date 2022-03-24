@@ -53,7 +53,6 @@ function App() {
         <Details details={details} />
       </div>
     </main>
-
     <Button loading={loading} generateRandomMovie={generateRandomMovieHandler} color={details.color} />
     <Background color={details.color} bannerImage={details.bannerImage} />
   </>
